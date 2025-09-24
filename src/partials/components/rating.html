@@ -1,0 +1,22 @@
+<div class="rating @if (context.class) {@class}" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+  <meta itemprop="bestRating" content="5">
+  <meta itemprop="worstRating" content="1">
+
+  @if (context.logo_url) {
+    <div class="rating__logo">
+      <img src="@logo_url" alt="@alt" />
+    </div>
+  }
+
+  <div class="rating__info">
+    <div class="rating__value" aria-label="Оценка @value на основе @count @count_title">
+      <span class="rating__title">@title</span>
+      <span aria-hidden="true" class="rating__separator">@separator</span>
+      <span itemprop="ratingValue" class="rating__scale">@value</span>
+    </div>
+    <div class="rating__total">
+      <span itemprop="reviewCount">@count</span>
+      <span>@count_title</span>
+    </div>
+  </div>
+</div>

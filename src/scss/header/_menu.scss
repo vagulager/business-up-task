@@ -1,0 +1,131 @@
+.header__menu {
+  display: none;
+  border-top: var(--border-dark-2);
+  padding: 22px 24px 64px;
+
+  @include tablet {
+    padding: 20px;
+  }
+
+  .header--open & {
+    display: block;
+    border-color: transparent;
+  }
+
+  .tabs {
+    @include inline-flex;
+
+    width: 100%;
+    max-width: 529px;
+    gap: 48px;
+
+    &__nav {
+      @include flex-d-column;
+
+      width: 100%;
+      max-width: 292px;
+
+      &-item {
+        text-transform: uppercase;
+      }
+
+      &-btn {
+        justify-content: space-between;
+        padding: 11px 0;
+        width: 100%;
+
+        &--active {
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    &__content {
+      width: 100%;
+      max-width: 189px;
+    }
+
+    @include small-tablet {
+      max-width: 100%;
+
+      &__nav {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+
+        &-item {
+          &:last-child {
+            .tabs__nav-btn {
+              border: none;
+            }
+          }
+        }
+
+        &-btn {
+          border-bottom: var(--border-primary-ligth);
+          padding: 18px 4.5px 18px 0;
+          color: var(--color-primary-light);
+          transition: border-color .1s;
+
+          .btn__arrow {
+            transform: rotate(135deg);
+
+            @include small-tablet {
+              fill: transparent;
+              stroke: currentcolor;
+              transform: scale(1.8);
+            }
+          }
+
+          &--active {
+            border-color: transparent;
+            color: var(--color-text-primary);
+
+            .btn__arrow {
+              transform: rotate(-45deg);
+
+              @include small-tablet {
+                transform: scale(1.8) rotate(-180deg);
+              }
+            }
+
+            + .tabs__panel--active {
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+
+      &__content {
+        display: none;
+      }
+    }
+  }
+
+  &-links {
+    overflow: hidden;
+    width: 100%;
+
+    a {
+      @include line-camp(1);
+
+      padding: 8px 0;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.2143;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-overflow: ellipsis;
+      color: currentcolor;
+      transition: color .1s, text-decoration-color .1s;
+      text-underline-offset: 8px;
+
+      &:hover {
+        text-decoration-color: var(--color-primary);
+        color: var(--color-primary);
+      }
+    }
+  }
+}

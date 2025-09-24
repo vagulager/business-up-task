@@ -1,0 +1,101 @@
+.hero {
+  &__slide {
+    max-width: 863px;
+    color: var(--color-text-secondary);
+
+    @include for-desktop {
+      padding-bottom: 80px;
+    }
+
+    &-title {
+      @include line-camp(6);
+
+      margin-bottom: 24px;
+      font-family: var(--font-family-secondary);
+      font-weight: 300;
+      font-size: 60px;
+      line-height: .9335;
+      letter-spacing: -.04em;
+      white-space: pre-line;
+      text-wrap: balance;
+
+      &:has(.hero__slide-mark) {
+        margin-bottom: -6px;
+      }
+
+      &--mobile {
+        display: none;
+      }
+
+      @include tablet {
+        font-size: 44px;
+        line-height: .84;
+        letter-spacing: -0.02em;
+
+        &--mobile {
+          &:not(:empty) {
+            display: block;
+
+            + .hero__slide-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-mark {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 30px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: -60px;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 18px;
+        max-width: 178px;
+        background: url('/img/hero/arrow.svg') center no-repeat;
+        background-size: 100%;
+      }
+
+      @include tablet {
+        padding-bottom: 30px;
+
+        &::after {
+          right: -12px;
+          bottom: 8px;
+          height: 12px;
+          max-width: 90px;
+          background: url('/img/hero/arrow-mobile.svg') center no-repeat;
+        }
+      }
+    }
+
+    &-subtitle {
+      @include font-text-primary;
+      @include line-camp(4);
+
+      text-wrap: balance;
+    }
+
+    &-link {
+      @include inline-flex;
+
+      margin-top: 32px;
+
+      @include tablet {
+        margin-top: 24px;
+      }
+    }
+
+    &-button {
+      @include tablet {
+        box-shadow: none;
+      }
+    }
+  }
+}

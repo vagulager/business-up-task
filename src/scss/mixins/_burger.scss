@@ -1,0 +1,65 @@
+/* stylelint-disable */
+
+@mixin burger {
+  --burger-width: 44px;
+  --burger-height: 36px;
+  --burger-line-height: 16px;
+
+  @include inline-flex-all-center;
+  gap: 4px;
+  flex-direction: column;
+  position: relative;
+  border: none;
+  padding: 0;
+  width: var(--burger-width);
+  height: var(--burger-height);
+  color: #000;
+  background-color: var(--color-bg-primary);
+  cursor: pointer;
+  border-radius: 999px;
+  box-shadow: var(--box-shadow);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 1.6px;
+    background-color: currentColor;
+    transition: transform .3s, top .3s;
+  }
+
+  &::before {
+    bottom: calc(100% - var(--burger-line-height));
+  }
+
+  &::after {
+    top: calc(100% - var(--burger-line-height));
+  }
+
+  &__line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: var(--burger-line-height);
+    background-color: currentColor;
+    transform: translateY(-50%);
+    transition: transform .3s, top .3s;
+  }
+
+  &[data-is-active="true"] {
+    &::before {
+      transform: rotate(45deg) translate(2px, 2px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(2px, -2px);
+    }
+
+    .burger__line {
+      transform: scale(0);
+      transition: transform .3s;
+    }
+  }
+}

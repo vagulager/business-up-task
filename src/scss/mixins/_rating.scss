@@ -1,0 +1,28 @@
+@mixin rating-dark {
+  background-color: var(--color-bg-rating);
+
+  .rating {
+    &__value {
+      color: var(--color-text-secondary);
+    }
+
+    &__total {
+      color: var(--color-text-secondary-70);
+    }
+  }
+}
+
+@mixin rating-light {
+  border: var(--border-dark);
+  background-color: var(--color-bg-primary);
+
+  .rating {
+    &__value {
+      color: var(--color-text-primary);
+    }
+
+    &__total {
+      color: var(--color-text-quaternary);
+    }
+  }
+}

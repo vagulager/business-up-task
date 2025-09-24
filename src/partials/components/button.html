@@ -1,0 +1,14 @@
+<button
+  type="@type"
+  class="btn btn--@variant @if (context.size) {btn--@size} @if (context.class) {@class} btn-reset"
+>
+  <span class="btn__text">@text</span>
+
+  @if (context.arrow) {
+    <span class="btn__arrow">
+      <svg viewBox="0 0 8 8" width="8" height="8">
+        <use href="img/sprite.svg#arrow" />
+      </svg>
+    </span>
+  }
+</button>

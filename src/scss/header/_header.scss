@@ -1,0 +1,137 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  color: var(--color-text-secondary);
+
+  @include tablet {
+    overflow-y: auto;
+    overscroll-behavior: none;
+
+    .container {
+      padding: 0;
+    }
+  }
+
+  &--open {
+    height: 100vh;
+    min-height: 100vh;
+
+    @supports (height: 100svh) {
+      height: 100svh;
+      min-height: 100svh;
+    }
+
+    .header {
+      &__inner {
+        border-radius: 0 0 24px 24px;
+        box-shadow: var(--box-shadow);
+        color: var(--color-text-primary);
+        background-color: var(--color-bg-secondary);
+      }
+    }
+
+    .rating {
+      @include rating-light;
+    }
+  }
+
+  &__inner {
+    transition: background-color .2s, box-shadow .2s;
+  }
+
+  &__info {
+    @include flex-all-sb;
+
+    border-bottom: var(--border-light);
+    padding: 18px 0;
+
+    @include tablet {
+      margin: 0 20px;
+      padding: 12px 0;
+    }
+
+    .header--open & {
+      border-bottom: var(--border-dark-2);
+
+      @include tablet {
+        margin: 0;
+        border-radius: 0 0 12px 12px;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+    }
+
+    [data-burger] {
+      @include for-desktop {
+        display: none;
+      }
+    }
+
+    &-col {
+      &--left, &--right {
+        @include flex-v-center;
+
+        flex: 1;
+      }
+
+      &--left {
+        gap: 12px;
+      }
+
+      &--center {
+        @include flex-all-center;
+      }
+
+      &--right {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__title {
+    @include font-caption-s;
+    @include line-camp(2);
+
+    max-width: 60%;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__socials {
+    @include inline-flex-v-center;
+
+    gap: 8px;
+
+    @include tablet {
+      .social-link {
+        border-radius: 90.5px;
+        width: 44px;
+        height: 36px;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--overlay-bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility .2s, opacity .2s;
+
+    .header--open & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/* stylelint-disable */
+@mixin font-face($font-family, $url, $weight, $style) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url('../fonts/#{$url}.woff2') format("woff2");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: $style;
+  }
+}
+
+body {
+  font-family: var(--font-family-primary, sans-serif);
+}
+
+@mixin font-caption-xs {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+@mixin font-caption-s {
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+}
+
+@mixin font-caption-l {
+  font-size: 14px;
+  line-height: 1.2145;
+  letter-spacing: -.01em;
+}
+
+@mixin font-text-primary {
+  font-size: 18px;
+  line-height: 1.389;
+  letter-spacing: -.01em;
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 1.375;
+  }
+}
+
+@mixin font-btn {
+  font-family: var(--font-family-primary);
+
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -.01em;
+  font-weight: 500;
+}
+
+@mixin font-h2 {
+  font-size: 56px;
+  font-family: var(--font-family-secondary);
+  line-height: .9464;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+  color: var(--color-text-quaternary);
+
+  @include tablet {
+    font-size: 40px;
+    line-height: .95;
+  }
+}

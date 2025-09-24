@@ -1,0 +1,34 @@
+@mixin tabs {
+  .tabs__panel {
+    display: none;
+  }
+
+  .tabs__panel--active {
+    display: block;
+    animation: .3s cubic-bezier(.96, .45, .23, .83) tab-active;
+  }
+}
+
+@keyframes tab-active {
+  0% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tab-active-block {
+  from {
+    display: none;
+  }
+
+  to {
+    display: block;
+  }
+}

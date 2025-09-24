@@ -1,0 +1,33 @@
+.social-link {
+  @include inline-flex-all-center;
+
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--color-bg-primary);
+  transition: border .2s, background .2s;
+  backdrop-filter: blur(10px);
+
+  &--wa {
+    svg {
+      fill: var(--color-wa);
+    }
+  }
+
+  &--tg {
+    svg {
+      fill: var(--color-tg);
+    }
+  }
+
+  &--dark {
+    @include dark-element;
+
+    svg {
+      fill: var(--color-text-secondary);
+    }
+  }
+}

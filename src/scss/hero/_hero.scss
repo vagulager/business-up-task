@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+  padding: 204px 0 26px;
+  min-height: 820px;
+
+  @include tablet {
+    padding: 131px 0 0;
+    min-height: 79svh;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), linear-gradient(0deg, rgba(70, 50, 40, .3), rgba(70, 50, 40, .3));
+  }
+
+  &[data-has-video="true"] {
+    &::after {
+      --bg-image: url('');
+    }
+  }
+
+  &[data-transition="true"],
+  &[data-has-video="true"] {
+    .hero {
+      &__image {
+        opacity: 0;
+      }
+    }
+  }
+
+  &[data-transition="true"] {
+    pointer-events: none;
+  }
+
+  &__inner {
+    @include flex-d-column;
+
+    height: 100%;
+  }
+
+  &__rating {
+    margin-bottom: 24px;
+  }
+
+  &__swiper {
+    &--main {
+      @include tablet {
+        padding: 0 0 48px;
+      }
+    }
+
+    &--thumb {
+      margin-top: auto;
+    }
+  }
+
+  &__video,
+  &__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    height: auto;
+    min-width: 100vw;
+    min-height: 100%;
+    max-height: 820px;
+    object-fit: cover;
+  }
+
+  &__image {
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
+    transition: opacity .3s, background-image .3s;
+  }
+}

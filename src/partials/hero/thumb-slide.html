@@ -1,0 +1,21 @@
+<li class="swiper-slide @if (context.class) {@class}" tabindex="0">
+  <div class="hero__thumb-slide">
+    <div class="hero__thumb-info">
+      <span class="hero__thumb-index"></span>
+      <p class="hero__thumb-title">@title</p>
+    </div>
+    <picture class="hero__thumb-picture">
+      <source
+        srcset="img/hero/thumb-slide-@id.webp 1x, img/hero/thumb-slide-@id@2x.webp 2x"
+        type="image/webp"
+      />
+      <img
+        src="img/hero/thumb-slide-@id.webp"
+        srcset="img/hero/thumb-slide-@id@2x.webp 2x"
+        alt="@alt"
+        class="hero__thumb-img"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+</li>

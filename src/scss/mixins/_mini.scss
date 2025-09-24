@@ -1,0 +1,105 @@
+/* stylelint-disable */
+
+@mixin bg-cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+$browser-context: 16; // Default
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
+}
+
+@mixin image-set($pathToImage) {
+  background-image: url("#{$pathToImage}.jpg");
+  background-image: image-set(
+    "#{$pathToImage}.webp"type("image/webp"),
+    "#{$pathToImage}.jpg"type("image/jpg")
+  );
+}
+
+@mixin footerToBottom {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+@mixin mr($value) {
+  &:not(:last-child) {
+    margin-right: $value;
+  }
+}
+
+@mixin ml($value) {
+  &:not(:last-child) {
+    margin-left: $value;
+  }
+}
+
+@mixin mb($value) {
+  &:not(:last-child) {
+    margin-bottom: $value;
+  }
+}
+
+@mixin mt($value) {
+  &:not(:last-child) {
+    margin-top: $value;
+  }
+}
+
+@mixin pseudo() {
+  content: "";
+  display: block;
+}
+
+@mixin dark-element() {
+  background: var(--border-light);
+  border: var(--border-dark);
+  transition: border .2s, background .2s;
+
+  &:hover,
+  &:focus {
+    border: var(--border-dark-hover);
+  }
+}
+
+@mixin dark-element-gradient($value) {
+  @include dark-element;
+
+  backdrop-filter: blur($value);
+}
+
+@mixin line-camp($value: 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $value;
+  line-clamp: $value;
+}
+
+@mixin click-effect() {
+  &:hover {
+    transform: scale(0.99);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+@mixin box-primary($radius: '40px') {
+  background: var(--color-bg-primary);
+  box-shadow: var(--box-shadow);
+  border-radius: $radius;
+}
+
+@mixin box-secondary($radius: '40px') {
+  background: var(--color-bg-secondary);
+  border: var(--border-dark-3);
+  box-shadow: var(--box-shadow);
+  border-radius: $radius;
+}

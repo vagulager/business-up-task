@@ -1,0 +1,21 @@
+<div
+  class="swiper-slide"
+  data-image-webp="/img/hero/slide-@id.webp"
+  data-image-jpg="/img/hero/slide-@id.jpg"
+  data-video="@if (context.video) {@video}"
+>
+  <div class="hero__slide">
+    @if (context.title_mobile) {<p class="hero__slide-title hero__slide-title--mobile">@title_mobile</p>}
+    <p class="hero__slide-title">@title</p>
+    <p class="hero__slide-subtitle">@subtitle</p>
+    <a href="@if (context.href) {@href}" target="_blank" class="hero__slide-link">
+      @include('../components/button.html', {
+        'type': 'button',
+        'text': '@button_text',
+        'variant': 'primary',
+        'arrow': true,
+        'class': 'hero__slide-button'
+      })
+    </a>
+  </div>
+</div>

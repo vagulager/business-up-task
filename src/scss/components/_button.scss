@@ -1,0 +1,106 @@
+.btn {
+  @include inline-flex;
+  @include font-btn;
+
+  align-items: center;
+  border-radius: 999px;
+  padding: 16px 24px;
+  max-width: 300px;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: transform .2s;
+  gap: 8px;
+
+  @include tablet {
+    padding: 12px 16px;
+  }
+
+  &__text {
+    display: inline-block;
+    overflow: hidden;
+    padding: 7px 6px;
+    line-height: .715;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__arrow {
+    @include inline-flex-all-center;
+
+    position: relative;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: var(--color-bg-primary);
+  }
+
+  &--primary {
+    @include click-effect;
+
+    box-shadow: var(--box-shadow-btn-primary);
+    color: var(--color-text-secondary);
+    background: var(--gradient-btn-primary);
+
+    .btn__arrow {
+      fill: var(--color-primary);
+    }
+  }
+
+  &--secondary {
+    @include click-effect;
+
+    background-color: var(--color-bg-primary);
+
+    .btn__arrow {
+      fill: var(--color-text-secondary);
+      background: var(--gradient-btn-primary);
+    }
+  }
+
+  &--large {
+    padding: 8px 12px;
+  }
+
+  &--link {
+    all: unset;
+
+    @include inline-flex-v-center;
+    @include font-caption-xs;
+
+    color: currentcolor;
+    transition: color .1s;
+    gap: 8px;
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: currentcolor;
+      background: none;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    .btn {
+      &__text {
+        padding: 0;
+        line-height: 0.7285;
+      }
+
+      &__arrow {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        fill: currentcolor;
+        background: none;
+        transform: rotate(45deg);
+        transition: transform .2s;
+      }
+    }
+  }
+}

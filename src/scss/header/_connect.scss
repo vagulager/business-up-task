@@ -1,0 +1,58 @@
+.header__contacts {
+  @include tablet {
+    margin-top: 48px;
+  }
+
+  @include for-desktop {
+    flex-direction: row;
+    margin-left: 12px;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    gap: 24px;
+
+    .contacts {
+      &__address {
+        display: none;
+      }
+
+      &__call {
+        all: unset;
+
+        @include inline-flex-d-column;
+
+        align-items: flex-start;
+        color: var(--color-text-secondary);
+        gap: 4px;
+
+        .contacts__title {
+          display: none;
+        }
+      }
+
+      &__phone {
+        @include font-caption-l;
+        @include line-camp(1);
+
+        font-weight: 500;
+        color: currentcolor;
+
+        .header__open & {
+          color: var(--color-text-tertiary);
+        }
+      }
+
+      &__working-hours {
+        @include font-caption-s;
+        @include line-camp(1);
+
+        font-weight: 400;
+
+        .header--open & {
+          color: var(--color-text-tertiary-70);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<!-- HEADER -->
+<header class="header" data-header itemscope itemtype="http://schema.org/Organization">
+  <div class="header__inner">
+    <div class="container">
+      <div class="header__info">
+        <div class="header__info-col header__info-col--left">
+          <button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger></button>
+
+          <div class="header__rating">
+            @include("../components/rating.html", {
+              "logo_url": "img/companies/ya.svg",
+              "alt": "Яндекс",
+              "title": "Рейтинг",
+              "separator": "•",
+              "value": "4.9",
+              "count": "135",
+              "count_title": "отзывов",
+              "class": "rating--dark"
+            })
+          </div>
+
+          <p itemprop="description" class="header__title">Салон красоты премиального<br /> уровня в Ставрополе</p>
+        </div>
+
+        <div class="header__info-col header__info-col--center">
+          @include("../components/logo.html", {
+            "class": "header__logo header__logo--light"
+          })
+
+          @include("../components/logo-dark.html", {
+            "class": "header__logo header__logo--dark"
+          })
+        </div>
+
+        <div class="header__info-col header__info-col--right">
+          <ul class="header__socials">
+            <li>
+              @include("../components/social-link.html", {
+                "href": "https://wa.me/79624506977",
+                "aria_label": "WhatsApp",
+                "target": "_blank",
+                "slug": "wa",
+                "class": "social-link--dark"
+              })
+            </li>
+
+            <li>
+              @include("../components/social-link.html", {
+                "href": "https://t.me/angelconceptstv",
+                "aria_label": "Telegram",
+                "target": "_blank",
+                "slug": "tg",
+                "class": "social-link--dark"
+              })
+            </li>
+          </ul>
+
+          <div class="header__connect">
+            @include("./contacts.html")
+          </div>
+        </div>
+      </div>
+      @include("./nav.html")
+      @include("./menu.html")
+    </div>
+  </div>
+  <div class="header__overlay" data-overlay></div>
+</header>

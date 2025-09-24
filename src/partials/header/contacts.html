@@ -1,0 +1,37 @@
+<div class="header__contacts contacts">
+  <div class="contacts__address">
+    <div class="contacts__address-title">
+      <div class="contacts__address-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <use xlink:href="img/sprite.svg#location"></use>
+        </svg>
+      </div>
+      <p class="contacts__title">Ждём вас по адресу:</p>
+    </div>
+    <address>г. Ставрополь ул. Ленина 440 В</address>
+  </div>
+  <div class="contacts__call">
+    <p class="contacts__title">Звоните:</p>
+    <a href="tel:+79100044636" class="contacts__phone">+7 910 004-46-36</a>
+    <div class="contacts__working-hours" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
+      <meta itemprop="dayOfWeek" content="Mo">
+      <meta itemprop="dayOfWeek" content="Tu">
+      <meta itemprop="dayOfWeek" content="We">
+      <meta itemprop="dayOfWeek" content="Th">
+      <meta itemprop="dayOfWeek" content="Fr">
+      <meta itemprop="dayOfWeek" content="Sa">
+      <meta itemprop="dayOfWeek" content="Su">
+      <meta itemprop="opens" content="10:00">
+      <meta itemprop="closes" content="22:00">
+      Пн–Вс, с <time datetime="10:00:00">10:00</time>-<time datetime="22:00:00">22:00</time>
+    </div>
+  </div>
+  @include("../components/button.html", {
+    "type": "button",
+    "text": "Запись на приём",
+    "variant": "secondary",
+    "arrow": true,
+    "size": "large",
+    "class": "header__contact-btn"
+  })
+</div>
