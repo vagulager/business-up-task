@@ -37,7 +37,7 @@
         left: 0;
         bottom: 16px;
         z-index: 1;
-        width: attr(data-progress + '%');
+        width: var(--progress-width);
         background-color: var(--color-bg-primary);
         opacity: 0;
       }

@@ -50,6 +50,7 @@ if (hero && heroSlider && heroThumbSlider) {
     },
     on: {
       init: function () {
+        this.update();
         progressBarAnimation(this.realIndex);
         changeHeroBackground(this.realIndex);
       },
@@ -69,12 +70,15 @@ if (hero && heroSlider && heroThumbSlider) {
     if (!AUTOPLAY) return;
 
     heroThumbSlides.forEach((item) => {
+      item.style = '--progress-width: 0';
       item.setAttribute('data-progress', 0);
     });
 
     setTimeout(() => {
-      if (heroThumbSlides[index])
+      if (heroThumbSlides[index]) {
+        heroThumbSlides[index].style = '--progress-width: 100%';
         heroThumbSlides[index].setAttribute('data-progress', 100);
+      }
     });
   }
 

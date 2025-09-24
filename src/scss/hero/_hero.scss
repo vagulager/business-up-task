@@ -6,6 +6,9 @@
   min-height: 820px;
 
   @include tablet {
+    @include flex-d-column;
+
+    align-items: flex-start;
     padding: 131px 0 0;
     min-height: 79svh;
   }
@@ -44,11 +47,14 @@
   &__inner {
     @include flex-d-column;
 
-    height: 100%;
+    flex: 1;
+    width: 100%;
   }
 
   &__rating {
-    margin-bottom: 24px;
+    &:not(:empty) {
+      margin-bottom: 24px;
+    }
   }
 
   &__swiper {
