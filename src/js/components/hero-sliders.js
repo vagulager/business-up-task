@@ -30,6 +30,7 @@ if (hero && heroSlider && heroThumbSlider) {
   const heroSliderSwiper = new Swiper(heroSlider, {
     loop: true,
     effect: 'fade',
+    allowTouchMove: true,
     fadeEffect: {
       crossFade: true,
     },
@@ -38,8 +39,9 @@ if (hero && heroSlider && heroThumbSlider) {
       delay: 5000,
     },
     breakpoints: {
-      768: {
+      1200: {
         speed: 150,
+        allowTouchMove: false,
       },
     },
     thumbs: {
