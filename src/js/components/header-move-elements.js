@@ -25,6 +25,7 @@ document.querySelectorAll('.header .tabs__panel').forEach((item, index) => {
       desktopContainer: item.closest('.tabs .tabs__content'),
       mobileContainer: navItem,
       breakpoint: 768,
+      throttleDelay: 100,
       callback: (isMobile) => {
         const id = isMobile ? 'mark-arrow' : 'arrow';
         const svgUse = navItem.querySelector('.btn__arrow svg use');
