@@ -24,10 +24,12 @@
 
         <div class="header__info-col header__info-col--center">
           @include("../components/logo.html", {
+            "type": "light",
             "class": "header__logo header__logo--light"
           })
 
-          @include("../components/logo-dark.html", {
+          @include("../components/logo.html", {
+            "type": "dark",
             "class": "header__logo header__logo--dark"
           })
         </div>
