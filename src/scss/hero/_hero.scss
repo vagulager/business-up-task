@@ -40,10 +40,6 @@
     }
   }
 
-  &[data-transition="true"] {
-    pointer-events: none;
-  }
-
   &__inner {
     @include flex-d-column;
 

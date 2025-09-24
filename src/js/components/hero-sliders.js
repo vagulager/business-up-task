@@ -43,10 +43,8 @@ if (hero && heroSlider && heroThumbSlider) {
     on: {
       init: function () {
         this.update();
-        setTimeout(() => {
-          progressBarAnimation(this.realIndex);
-          changeHeroBackground(this.realIndex);
-        }, 100);
+        progressBarAnimation(this.activeIndex);
+        changeHeroBackground(this.activeIndex);
       },
       beforeSlideChangeStart: function () {
         hero.setAttribute('data-transition', true);
@@ -59,12 +57,12 @@ if (hero && heroSlider && heroThumbSlider) {
           });
       },
       slideChangeTransitionEnd: function () {
-        progressBarAnimation(this.realIndex);
-        changeHeroBackground(this.realIndex);
+        progressBarAnimation(this.activeIndex);
+        changeHeroBackground(this.activeIndex);
       },
       realIndexChange: function () {
         setTimeout(() => {
-          progressBarAnimation(this.realIndex);
+          progressBarAnimation(this.activeIndex);
         }, 50);
       },
     },

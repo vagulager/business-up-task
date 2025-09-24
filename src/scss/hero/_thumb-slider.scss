@@ -50,6 +50,11 @@
         backdrop-filter: blur(2px);
       }
 
+      &-active {
+        cursor: default;
+        pointer-events: none;
+      }
+
       &[data-progress="100"] {
         &::before {
           opacity: 1;
