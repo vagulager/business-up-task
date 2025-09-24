@@ -21,6 +21,7 @@ if (hero && heroSlider && heroThumbSlider) {
     slidesPerView: 'auto',
     watchSlidesProgress: true,
     slideToClickedSlide: true,
+    allowTouchMove: false,
   });
 
   const heroSliderSwiper = new Swiper(heroSlider, {
