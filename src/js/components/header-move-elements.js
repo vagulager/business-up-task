@@ -4,17 +4,16 @@ const rating = moveElementOnResize({
   elementSelector: '.header .rating',
   desktopContainer: '.header__rating',
   mobileContainer: '.hero__rating',
-  breakpoint: 1199.98,
+  breakpoint: 1199,
 });
 
 const headerContacts = moveElementOnResize({
   elementSelector: '.header__connect',
   desktopContainer: '.header__info-col.header__info-col--right',
   mobileContainer: '.header__menu-col.header__menu-col--contacts',
-  breakpoint: 1198.98,
+  breakpoint: 1199,
 });
 
-// Табы в меню
 document.querySelectorAll('.header .tabs__panel').forEach((item, index) => {
   if (item) {
     const navItem = item
