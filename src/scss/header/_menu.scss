@@ -66,6 +66,7 @@
           padding: 18px 4.5px 18px 0;
           color: var(--color-primary-light);
           transition: border-color .1s;
+          touch-action: manipulation;
 
           .btn__arrow {
             transform: rotate(135deg);
