@@ -61,6 +61,7 @@
     @include font-caption-l;
     @include inline-flex;
 
+    font-weight: 500;
     white-space: nowrap;
     transition: color .2s;
     gap: 4px;

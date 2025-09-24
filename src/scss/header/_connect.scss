@@ -29,17 +29,29 @@
         .contacts__title {
           display: none;
         }
+
+        .header--open & {
+          color: var(--color-text-tertiary);
+        }
       }
 
       &__phone {
+        all: unset;
+
         @include font-caption-l;
         @include line-camp(1);
 
         font-weight: 500;
         color: currentcolor;
+        transition: color .1s;
+        cursor: pointer;
 
-        .header__open & {
-          color: var(--color-text-tertiary);
+        &:hover {
+          color: var(--color-primary);
+        }
+
+        &:focus-within {
+          outline: 1px solid var(--color-primary);
         }
       }
 
