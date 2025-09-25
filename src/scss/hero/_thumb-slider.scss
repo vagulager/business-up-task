@@ -1,4 +1,6 @@
 .hero__thumb-slider {
+  overflow: visible;
+
   .swiper {
     &-wrapper {
       counter-reset: thumb 0;

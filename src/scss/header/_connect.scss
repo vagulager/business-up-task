@@ -1,4 +1,10 @@
 .header__contacts {
+  @include tablet {
+    .header:not(.header--open) & {
+      display: none;
+    }
+  }
+
   @include for-desktop {
     flex-direction: row;
     margin-left: 12px;
