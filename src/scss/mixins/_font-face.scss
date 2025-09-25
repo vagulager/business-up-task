@@ -31,6 +31,17 @@ body {
   letter-spacing: -.01em;
 }
 
+@mixin font-tertiary($weight: 400) {
+  font-size: 15px;
+  font-weight: $weight;
+  line-height: 1.466;
+  letter-spacing: -.01em;
+}
+
+@mixin font-tertiary-accent {
+  @include font-tertiary(700);
+}
+
 @mixin font-text-primary {
   font-size: 18px;
   line-height: 1.389;

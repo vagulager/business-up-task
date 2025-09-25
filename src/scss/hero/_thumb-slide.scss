@@ -35,7 +35,7 @@
 
   &-index {
     @include inline-flex-all-center;
-    @include dark-element;
+    @include dark-element(false);
 
     overflow: hidden;
     border-radius: 50%;

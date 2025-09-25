@@ -1,0 +1,37 @@
+.article-card {
+  @include inline-flex;
+
+  gap: 24px;
+
+  &__media {
+    @include small-card;
+
+    overflow: hidden;
+    width: 100%;
+    min-width: 168px;
+    max-width: 168px;
+    max-height: 168px;
+  }
+
+  &__img {
+    border-radius: 12px;
+    padding: 4px;
+    width: 100%;
+  }
+
+  &__title {
+    @include font-tertiary(700);
+    @include line-camp(2);
+  }
+
+  &__subtitle {
+    @include font-tertiary;
+    @include line-camp(2);
+
+    margin-top: 4px;
+  }
+
+  &__link {
+    margin-top: 16px;
+  }
+}

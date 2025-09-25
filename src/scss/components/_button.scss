@@ -3,38 +3,47 @@
   @include font-btn;
 
   align-items: center;
-  border-radius: 999px;
-  padding: 16px 24px;
-  max-width: 300px;
-  font-weight: 500;
-  font-size: 14px;
-  text-transform: uppercase;
-  transition: transform .2s;
   touch-action: manipulation;
-  gap: 8px;
 
-  @include tablet {
-    padding: 12px 16px;
+  &--default {
+    border-radius: 999px;
+    padding: 16px 24px;
+    max-width: 300px;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: transform .2s;
+    gap: 8px;
+
+    @include tablet {
+      padding: 12px 16px;
+    }
+
+    .btn {
+      &__text {
+        display: inline-block;
+        overflow: hidden;
+        padding: 7px 6px;
+        line-height: .715;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &__arrow {
+        @include inline-flex-all-center;
+
+        position: relative;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        background: var(--color-bg-primary);
+      }
+    }
   }
 
-  &__text {
-    display: inline-block;
-    overflow: hidden;
-    padding: 7px 6px;
-    line-height: .715;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  &__arrow {
-    @include inline-flex-all-center;
-
-    position: relative;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    background: var(--color-bg-primary);
+  &--large {
+    padding: 8px 12px;
   }
 
   &--primary {
@@ -60,13 +69,7 @@
     }
   }
 
-  &--large {
-    padding: 8px 12px;
-  }
-
-  &--link {
-    all: unset;
-
+  &--tab {
     @include inline-flex-v-center;
     @include font-caption-xs;
 
@@ -102,6 +105,38 @@
         transform: rotate(45deg);
         transition: transform .2s;
       }
+    }
+  }
+
+  &--link {
+    border-bottom: 1px solid transparent;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: border-color .1s;
+    gap: 6px;
+
+    .btn {
+      &__text {
+        padding: 7px 0 7px 1px;
+        line-height: .716;
+        letter-spacing: -0.01em;
+        color: currentcolor;
+        transition: color .1s;
+      }
+
+      &__arrow {
+        position: relative;
+        top: -1px;
+        width: 16px;
+        height: 16px;
+        fill: currentcolor;
+        transition: fill .1s;
+      }
+    }
+
+    &:hover {
+      border-color: var(--color-primary-lightest);
+      color: var(--color-primary);
     }
   }
 }

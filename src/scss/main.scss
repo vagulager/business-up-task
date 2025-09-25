@@ -3,11 +3,13 @@
 @import "vars";
 @import "fonts";
 @import "settings";
+@import "keyframes";
 
 // подключения компонентов страницы
 @import "./components/button";
 @import "./components/rating";
 @import "./components/social-link";
 @import "./components/contacts";
+@import "./components/article-card";
 @import "./header";
 @import "./hero";

@@ -1,0 +1,30 @@
+<article class="article-card">
+  <div class="article-card__media">
+    <picture>
+      <source
+        srcset="img/articles/article-@id.webp 1x, img/articles/article-@id@2x.webp 2x"
+        type="image/webp"
+      />
+      <img
+        src="img/articles/article-@id.webp"
+        srcset="img/articles/article-@id@2x.webp 2x"
+        alt="@alt"
+        class="article-card__img"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div class="article-card__text">
+    <h2 class="article-card__title">@title</h2>
+    <p class="article-card__subtitle">@subtitle</p>
+    <a href="@link.href" class="article-card__link">
+      @include("../components/button.html", {
+        "type": "button",
+        "text": "@link.text",
+        "variant": "link",
+        "arrow": true,
+        "class": "article-card__btn"
+      })
+    </a>
+  </div>
+</article>

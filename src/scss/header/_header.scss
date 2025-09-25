@@ -134,4 +134,12 @@
       visibility: visible;
     }
   }
+
+  &__articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8px 0;
+    max-width: 735px;
+    gap: 24px 16px;
+  }
 }

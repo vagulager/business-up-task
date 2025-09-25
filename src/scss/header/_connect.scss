@@ -1,8 +1,4 @@
 .header__contacts {
-  @include tablet {
-    margin-top: 48px;
-  }
-
   @include for-desktop {
     flex-direction: row;
     margin-left: 12px;

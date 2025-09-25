@@ -2,14 +2,49 @@
   display: none;
   border-top: var(--border-dark-2);
   padding: 22px 24px 64px;
+  gap: 48px;
 
   @include tablet {
-    padding: 20px;
+    flex-direction: column;
+    padding: 20px
   }
 
   .header--open & {
-    display: block;
-    border-color: transparent;
+    @include flex;
+
+    justify-content: space-between;
+
+    @include tablet {
+      border-color: transparent;
+    }
+  }
+
+  &-col {
+    opacity: 0;
+
+    &--menu {
+      flex: 1;
+    }
+
+    &--articles {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--contacts {
+      display: none;
+
+      @include tablet {
+        .header--open & {
+          display: block;
+        }
+      }
+    }
+
+    .header--open & {
+      animation: fade-in .3s forwards;
+    }
   }
 
   .tabs {
@@ -25,14 +60,11 @@
       width: 100%;
       max-width: 292px;
 
-      &-item {
-        text-transform: uppercase;
-      }
-
       &-btn {
         justify-content: space-between;
         padding: 11px 0;
         width: 100%;
+        text-transform: uppercase;
 
         &--active {
           color: var(--color-primary);

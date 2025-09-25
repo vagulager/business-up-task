@@ -56,14 +56,16 @@ $browser-context: 16; // Default
   display: block;
 }
 
-@mixin dark-element() {
+@mixin dark-element($hover: true) {
   background: var(--border-light);
   border: var(--border-dark);
   transition: border .2s, background .2s;
 
-  &:hover,
-  &:focus {
-    border: var(--border-dark-hover);
+  @if ($hover) {
+    &:hover,
+    &:focus {
+      border: var(--border-dark-hover);
+    }
   }
 }
 
@@ -102,4 +104,10 @@ $browser-context: 16; // Default
   border: var(--border-dark-3);
   box-shadow: var(--box-shadow);
   border-radius: $radius;
+}
+
+@mixin small-card {
+  background: var(--color-bg-primary);
+  box-shadow: var(--box-shadow);
+  border-radius: 16px;
 }
