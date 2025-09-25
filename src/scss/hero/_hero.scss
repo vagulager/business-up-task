@@ -65,6 +65,12 @@
     }
   }
 
+  &__slider {
+    @include tablet {
+      overflow: visible;
+    }
+  }
+
   &__video,
   &__image {
     position: absolute;

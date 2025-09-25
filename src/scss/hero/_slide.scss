@@ -17,10 +17,15 @@
       line-height: .9335;
       letter-spacing: -.04em;
       white-space: pre-line;
+      opacity: 0;
       text-wrap: balance;
 
       &:has(.hero__slide-mark) {
         margin-bottom: -6px;
+      }
+
+      .swiper-slide-active & {
+        animation: fade-up .4s .1s forwards;
       }
 
       &--mobile {
@@ -79,13 +84,23 @@
       @include font-text-primary;
       @include line-camp(4);
 
+      opacity: 0;
       text-wrap: balance;
+
+      .swiper-slide-active & {
+        animation: fade-up .4s .15s forwards;
+      }
     }
 
     &-link {
       @include inline-flex;
 
       margin-top: 32px;
+      opacity: 0;
+
+      .swiper-slide-active & {
+        animation: fade-up .4s .2s forwards;
+      }
 
       @include tablet {
         margin-top: 24px;
