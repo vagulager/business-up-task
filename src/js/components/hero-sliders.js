@@ -51,55 +51,47 @@ if (hero && heroSlider && heroThumbSlider) {
     },
     on: {
       init: function () {
-        this.update();
-        progressBarAnimation(this.activeIndex);
+        heroThumbSlider.setAttribute('data-autoplay', AUTOPLAY);
         changeHeroBackground(this.activeIndex);
         updateAriaAttributes(this.activeIndex);
       },
       beforeSlideChangeStart: function () {
         hero.setAttribute('data-transition', true);
 
-        document
-          .querySelectorAll('#hero-thumb-slider .swiper-slide')
-          .forEach((item) => {
-            item.style.setProperty('--progress-width', '0');
-            item.setAttribute('data-progress', '0');
-          });
+        thumbSlides.forEach((item) => {
+          item.style.setProperty('--progress-width', '0');
+          item.setAttribute('data-progress', '0');
+        });
       },
       slideChangeTransitionEnd: function () {
-        progressBarAnimation(this.activeIndex);
         changeHeroBackground(this.activeIndex);
       },
       slideChange: function () {
         updateAriaAttributes(this.activeIndex);
+
+        if (isMobile()) {
+          thumbSlides.forEach((item, index) => {
+            if (index < this.activeIndex) {
+              item.setAttribute('data-progress', '100');
+              item.style.setProperty('--progress-width', `100%`);
+            }
+          });
+        }
       },
-      realIndexChange: function () {
-        setTimeout(() => {
-          progressBarAnimation(this.activeIndex);
-        }, 50);
+      autoplayTimeLeft: function (swiper, _, progress) {
+        const _progress = Math.floor((1 - progress) * 100);
+
+        thumbSlides[swiper.activeIndex].setAttribute(
+          'data-progress',
+          _progress
+        );
+        thumbSlides[swiper.activeIndex].style.setProperty(
+          '--progress-width',
+          `${_progress}%`
+        );
       },
     },
   });
-
-  function progressBarAnimation(index) {
-    heroThumbSlider.setAttribute('data-autoplay', AUTOPLAY);
-
-    if (!AUTOPLAY) return;
-
-    const safeIndex = Math.max(0, Math.min(index, thumbSlides.length - 1));
-
-    thumbSlides.forEach((item) => {
-      item.style.setProperty('--progress-width', '0');
-      item.setAttribute('data-progress', '0');
-    });
-
-    if (thumbSlides[safeIndex]) {
-      requestAnimationFrame(() => {
-        thumbSlides[safeIndex].style.setProperty('--progress-width', '100%');
-        thumbSlides[safeIndex].setAttribute('data-progress', '100');
-      });
-    }
-  }
 
   function changeHeroBackground(index) {
     const safeIndex = Math.max(0, Math.min(index, heroSlides.length - 1));

@@ -43,7 +43,12 @@
         z-index: 1;
         width: var(--progress-width);
         background-color: var(--color-bg-primary);
-        opacity: 0;
+      }
+
+      &[data-progress="0"] {
+        &::before {
+          opacity: 0;
+        }
       }
 
       &::after {
@@ -55,12 +60,9 @@
       &-active {
         cursor: default;
         pointer-events: none;
-      }
 
-      &[data-progress="100"] {
         &::before {
-          opacity: 1;
-          transition: opaciy .1s, width 5s linear;
+          transition: width .2s linear;
         }
       }
 
