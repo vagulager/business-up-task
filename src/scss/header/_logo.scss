@@ -1,11 +1,13 @@
 .header__logo {
   width: 100%;
   min-width: 88px;
+  min-height: 68px;
   max-width: 88px;
   max-height: 68px;
 
   @include tablet {
     min-width: 74px;
+    min-height: 56px;
     max-width: 74px;
     max-height: 56px;
   }
