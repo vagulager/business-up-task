@@ -1,10 +1,9 @@
 <li class="tabs__nav-item">
   @include("../components/button.html", {
     "type": "button",
-    "text": "@text",
+    "text": "@if (context.text) {@text}",
     "variant": "tab",
     "arrow": true,
-    "class": "tabs__nav-btn",
-    "tabindex": 0
+    "class": "tabs__nav-btn @if (context.hidden) {tabs__nav-btn--hidden}",
   })
 </li>

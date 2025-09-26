@@ -4,6 +4,9 @@
       <ul class="list-reset tabs__nav">
         @loop("./menu-item.html", [
           {
+            "hidden": true
+          },
+          {
             "text": "SPA & Релакс"
           },
           {
@@ -30,6 +33,7 @@
         ])
       </ul>
       <div class="tabs__content">
+        <div class="tabs__panel"></div>
         <div class="tabs__panel">
           <ul class="header__menu-links">
             <li class="header__menu-item"><a href="#" class="header__menu-link">Европейские массажи</a></li>
