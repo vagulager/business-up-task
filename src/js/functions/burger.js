@@ -6,10 +6,12 @@ import { enableScroll } from './enable-scroll.js';
   const burgers = document?.querySelectorAll('[data-burger]');
   const overlay = document?.querySelector('[data-overlay]');
   const headerContactButton = document?.querySelector('.header__contact-btn');
+  const main = document.querySelector('main');
 
   burgers.forEach((burger) => {
     burger?.addEventListener('click', (e) => {
       header?.classList.toggle('header--open');
+      main.setAttribute('inert', '');
 
       changeHeaderElementsStyle();
 
@@ -44,6 +46,7 @@ import { enableScroll } from './enable-scroll.js';
 
   function handleClose() {
     header.classList.remove('header--open');
+    main.removeAttribute('inert');
 
     burgers.forEach((burger) => {
       burger?.setAttribute('data-is-active', false);
