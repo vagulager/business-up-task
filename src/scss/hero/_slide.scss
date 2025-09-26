@@ -57,12 +57,12 @@
       &::after {
         content: '';
         position: absolute;
-        right: -60px;
+        right: -64px;
         bottom: 0;
         display: block;
         width: 100%;
         height: 18px;
-        max-width: 178px;
+        max-width: 182px;
         background: url('/img/hero/arrow.svg') center no-repeat;
         background-size: 100%;
       }
@@ -72,7 +72,7 @@
 
         &::after {
           right: -12px;
-          bottom: 8px;
+          bottom: 12px;
           height: 12px;
           max-width: 90px;
           background: url('/img/hero/arrow-mobile.svg') center no-repeat;

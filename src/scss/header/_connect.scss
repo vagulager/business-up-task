@@ -68,5 +68,15 @@
         }
       }
     }
+
+    .header__contact-btn {
+      font-family: var(--font-family-tertiary);
+
+      .btn {
+        &__text {
+          letter-spacing: .00235em;
+        }
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@
   position: relative;
   align-items: center;
   border-radius: 34px;
-  padding: 3px 20px 3px 4px;
+  padding: 3px 19px 3px 4px;
   min-width: 166px;
   min-height: 48px;
   box-shadow: var(--box-shadow);
@@ -53,13 +53,13 @@
       flex-direction: row;
       align-items: center;
       padding: 7px 16px 7px 44px;
-      gap: 8px;
+      gap: 10px;
     }
   }
 
   &__value {
     @include font-caption-l;
-    @include inline-flex;
+    @include inline-flex-v-center;
 
     font-weight: 500;
     white-space: nowrap;
@@ -88,7 +88,11 @@
   }
 
   &__separator {
-    letter-spacing: -0.108em;
+    border-radius: 50%;
+    width: 3px;
+    height: 3px;
+    font-weight: 400;
+    background-color: currentcolor;
   }
 
   &__total {
@@ -102,19 +106,24 @@
 
     @include tablet {
       position: relative;
-      padding-left: 12px;
+      padding-left: 8px;
       max-width: 116px;
       font-family: var(--font-family-tertiary);
-      font-size: 15px;
-      line-height: 1.214;
+      font-size: 14px;
+      line-height: 1.215;
       letter-spacing: 0;
 
       &::before {
-        content: '|';
+        content: '';
         position: absolute;
         left: 0;
         top: -1px;
+        bottom: 0;
         display: block;
+        margin: auto;
+        width: 1px;
+        height: 12px;
+        background-color: var(--color-text-secondary-20);
       }
     }
   }

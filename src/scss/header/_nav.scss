@@ -8,13 +8,17 @@
   }
 
   &-item {
-    @include font-caption-s;
-
-    padding: 16.5px 0;
+    padding: 19.5px 0 18px;
     font-weight: 500;
+    font-size: 13px;
+    line-height: .693;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: currentcolor;
+
+    [data-burger] {
+      letter-spacing: 0.06em;
+    }
 
     > * {
       text-transform: uppercase;
@@ -33,7 +37,7 @@
     button {
       @include inline-flex-v-center;
 
-      gap: 12px;
+      gap: 10px;
 
       &[aria-expanded="true"] {
         svg {

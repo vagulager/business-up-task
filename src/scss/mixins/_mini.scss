@@ -57,9 +57,9 @@ $browser-context: 16; // Default
 }
 
 @mixin dark-element($hover: true) {
-  background: var(--border-light);
+  background-color: var(--color-bg-light);
   border: var(--border-dark);
-  transition: border .2s, background .2s;
+  transition: border .2s, background-color .2s;
 
   @if ($hover) {
     &:hover,
@@ -80,7 +80,6 @@ $browser-context: 16; // Default
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $value;
-  line-clamp: $value;
 }
 
 @mixin click-effect() {

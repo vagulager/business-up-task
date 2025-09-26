@@ -69,6 +69,14 @@
         &--active {
           color: var(--color-primary);
         }
+
+        .btn {
+          &__arrow {
+            position: relative;
+            top: -1px;
+            margin-right: 4px;
+          }
+        }
       }
     }
 
