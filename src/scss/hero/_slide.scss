@@ -106,11 +106,5 @@
         margin-top: 24px;
       }
     }
-
-    &-button {
-      @include tablet {
-        box-shadow: none;
-      }
-    }
   }
 }

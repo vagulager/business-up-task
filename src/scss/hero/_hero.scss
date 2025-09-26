@@ -66,9 +66,7 @@
   }
 
   &__slider {
-    @include tablet {
-      overflow: visible;
-    }
+    overflow: visible;
   }
 
   &__video,
@@ -90,6 +88,6 @@
     background-position: center;
     background-size: cover;
     opacity: 1;
-    transition: opacity .4s, background-image .6s;
+    transition: opacity .4s, background-image .4s;
   }
 }

@@ -17,14 +17,13 @@
   <div class="article-card__text">
     <h2 class="article-card__title">@title</h2>
     <p class="article-card__subtitle">@subtitle</p>
-    <a href="@link.href" class="article-card__link">
-      @include("../components/button.html", {
-        "type": "button",
-        "text": "@link.text",
-        "variant": "link",
-        "arrow": true,
-        "class": "article-card__btn"
-      })
-    </a>
+    @include("./button.html", {
+      "htmlTag": "a",
+      "variant": "link",
+      "href": "@link.href",
+      "text": "@link.text",
+      "arrow": true,
+      "class": "article-card__link"
+    })
   </div>
 </article>

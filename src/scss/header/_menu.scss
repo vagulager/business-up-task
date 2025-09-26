@@ -138,27 +138,31 @@
   &-links {
     overflow: hidden;
     width: 100%;
+  }
 
-    a {
-      @include line-camp(1);
+  &-item {
+    @include flex;
+  }
 
-      padding: 8px 0;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 1.2143;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      text-decoration: underline;
-      text-decoration-color: transparent;
-      text-overflow: ellipsis;
-      color: currentcolor;
-      transition: color .1s, text-decoration-color .1s;
-      text-underline-offset: 8px;
+  &-link {
+    @include line-camp(1);
 
-      &:hover {
-        text-decoration-color: var(--color-primary);
-        color: var(--color-primary);
-      }
+    padding: 8px 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2143;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-overflow: ellipsis;
+    color: currentcolor;
+    transition: color .1s, text-decoration-color .1s;
+    text-underline-offset: 8px;
+
+    &:hover {
+      text-decoration-color: var(--color-primary);
+      color: var(--color-primary);
     }
   }
 }
