@@ -11,7 +11,6 @@ import { enableScroll } from './enable-scroll.js';
   burgers.forEach((burger) => {
     burger?.addEventListener('click', (e) => {
       header?.classList.toggle('header--open');
-      main.setAttribute('inert', '');
 
       changeHeaderElementsStyle();
 
@@ -21,10 +20,12 @@ import { enableScroll } from './enable-scroll.js';
 
       burgers.forEach((item) => {
         if (header?.classList.contains('header--open')) {
+          main.setAttribute('inert', '');
           item?.setAttribute('data-is-active', true);
           item?.setAttribute('aria-expanded', 'true');
           item?.setAttribute('aria-label', 'Закрыть меню');
         } else {
+          main.removeAttribute('inert');
           item?.setAttribute('data-is-active', false);
           item?.setAttribute('aria-expanded', 'false');
           item?.setAttribute('aria-label', 'Открыть меню');
