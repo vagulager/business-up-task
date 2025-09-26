@@ -6,6 +6,7 @@ import {
   Autoplay,
   Thumbs,
 } from 'swiper/modules';
+import { isMobile } from '../functions/check-viewport.js';
 
 Swiper.use([Navigation, Pagination, EffectFade, Autoplay, Thumbs]);
 
@@ -98,8 +99,12 @@ if (hero && heroSlider && heroThumbSlider) {
     if (!activeSlide) return;
 
     const video = activeSlide.getAttribute('data-video');
-    const imageWebp = activeSlide.getAttribute('data-image-webp');
-    const imageJpg = activeSlide.getAttribute('data-image-jpg');
+    const imageWebp = isMobile()
+      ? activeSlide.getAttribute('data-mobile-image-webp')
+      : activeSlide.getAttribute('data-image-webp');
+    const imageJpg = isMobile()
+      ? activeSlide.getAttribute('data-mobile-image-jpg')
+      : activeSlide.getAttribute('data-image-jpg');
 
     if (video && heroVideo) {
       hero.setAttribute('data-has-video', 'true');
