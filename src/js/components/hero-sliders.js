@@ -13,7 +13,7 @@ const thumbSlides = document.querySelectorAll(
   '#hero-thumb-slider .swiper-slide'
 );
 
-const AUTOPLAY = false;
+const AUTOPLAY = true;
 
 if (hero && heroSlider && heroThumbSlider) {
   const heroThumbSliderSwiper = new Swiper(heroThumbSlider, {
@@ -85,6 +85,8 @@ if (hero && heroSlider && heroThumbSlider) {
 }
 
 function progressBarAnimation(index) {
+  heroThumbSlider.setAttribute('data-autoplay', AUTOPLAY);
+
   if (!AUTOPLAY) return;
 
   const safeIndex = Math.max(0, Math.min(index, thumbSlides.length - 1));
