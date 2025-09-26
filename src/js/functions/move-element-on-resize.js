@@ -1,6 +1,6 @@
 import { throttle } from './throttle.js';
 
-const isLog = true;
+const IS_LOG = false;
 
 // Функция для перемещения элемента между контейнерами
 export function moveElementOnResize(options) {
@@ -43,7 +43,7 @@ export function moveElementOnResize(options) {
       const targetContainer = currentIsMobile ? mobileEl : desktopEl;
       const currentContainer = currentIsMobile ? desktopEl : mobileEl;
 
-      isLog &&
+      IS_LOG &&
         console.log('Перемещение элемента:', {
           from: currentContainer.className || currentContainer.id,
           to: targetContainer.className || targetContainer.id,
@@ -54,9 +54,9 @@ export function moveElementOnResize(options) {
       // Проверяем, что элемент еще существует в DOM и не находится уже в целевом контейнере
       if (element.parentNode && element.parentNode !== targetContainer) {
         targetContainer.appendChild(element);
-        isLog && console.log('Элемент успешно перемещен');
+        IS_LOG && console.log('Элемент успешно перемещен');
       } else {
-        isLog &&
+        IS_LOG &&
           console.log('Элемент уже в целевом контейнере или отсутствует в DOM');
       }
 
@@ -79,7 +79,7 @@ export function moveElementOnResize(options) {
         if (element.parentNode && element.parentNode !== targetContainer) {
           targetContainer.appendChild(element);
 
-          isLog &&
+          IS_LOG &&
             console.log('ResizeObserver: Элемент перемещен', {
               width,
               breakpoint,
@@ -107,7 +107,7 @@ export function moveElementOnResize(options) {
     // Проверяем, не находится ли элемент уже в правильном контейнере
     if (element.parentNode !== targetContainer) {
       targetContainer.appendChild(element);
-      isLog && console.log('Первоначальное размещение элемента');
+      IS_LOG && console.log('Первоначальное размещение элемента');
     }
 
     // Инициализируем наблюдение
@@ -118,21 +118,21 @@ export function moveElementOnResize(options) {
       const observedElement = document.body || document.documentElement;
       resizeObserver.observe(observedElement);
 
-      isLog && console.log('ResizeObserver инициализирован');
+      IS_LOG && console.log('ResizeObserver инициализирован');
     } else {
       // Fallback для старых браузеров
       window.addEventListener('resize', throttledHandleResize);
-      isLog && console.log('Используется window.resize (fallback)');
+      IS_LOG && console.log('Используется window.resize (fallback)');
     }
   }
 
   function destroy() {
     if (resizeObserver) {
       resizeObserver.disconnect();
-      isLog && console.log('ResizeObserver отключен');
+      IS_LOG && console.log('ResizeObserver отключен');
     } else {
       window.removeEventListener('resize', throttledHandleResize);
-      isLog && console.log('Обработчик resize удален');
+      IS_LOG && console.log('Обработчик resize удален');
     }
   }
 
