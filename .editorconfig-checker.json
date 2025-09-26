@@ -8,7 +8,6 @@
     ".stylelintrc",
     "\\.md$",
     "\\.php$",
-    "**/.DS_Store",
-    "src/scss/vendor/normalize.css"
+    "**/.DS_Store"
   ]
 }
