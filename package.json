@@ -13,7 +13,6 @@
     "cache": "gulp cache",
     "backend": "gulp backend",
     "zip": "gulp zip --build",
-    "preinstall": "npx patch-package --reverse || true",
     "postinstall": "patch-package"
   },
   "author": "MaxGraph",
