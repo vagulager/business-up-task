@@ -1,7 +1,7 @@
 @if (!context.is_link) {
   <button
     @if (context.type) {type="@type"}
-    @if (context.tabindex) {tabindex="@tabindex"}
+    tabindex="0"
     class="btn btn--@variant @if (context.size) {btn--@size} @if (context.class) {@class} btn-reset"
   >
     <span class="btn__text">@text</span>
@@ -20,7 +20,7 @@
   <a
     @if (context.href) {href="@href"}
     @if (context.target) {target="@target"}
-    @if (context.tabindex) {tabindex="@tabindex"}
+    tabindex="0"
     class="btn btn--@variant @if (context.class) {@class} btn-reset"
   >
     <span class="btn__text">@text</span>

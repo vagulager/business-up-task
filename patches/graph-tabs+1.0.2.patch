@@ -1,5 +1,5 @@
 diff --git a/node_modules/graph-tabs/src/graph-tabs.js b/node_modules/graph-tabs/src/graph-tabs.js
-index 28ecaa8..3a0afe9 100644
+index 28ecaa8..7a2f22e 100644
 --- a/node_modules/graph-tabs/src/graph-tabs.js
 +++ b/node_modules/graph-tabs/src/graph-tabs.js
 @@ -6,6 +6,10 @@ export default class GraphTabs {
@@ -55,8 +55,12 @@ index 28ecaa8..3a0afe9 100644
              this.tabsPanels[i].focus();
            } else if (this.tabsBtns[dir]) {
              this.switchTabs(this.tabsBtns[dir], e.currentTarget);
-@@ -96,16 +103,16 @@ export default class GraphTabs {
-     newTab.removeAttribute('tabindex');
+@@ -93,19 +100,19 @@ export default class GraphTabs {
+ 
+   switchTabs(newTab, oldTab = this.tabs.querySelector('[aria-selected]')) {
+     newTab.focus();
+-    newTab.removeAttribute('tabindex');
++    newTab.setAttribute('tabindex', '0');
      newTab.setAttribute('aria-selected', 'true');
  
 -    oldTab.removeAttribute('aria-selected');

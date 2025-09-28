@@ -122,14 +122,14 @@ if (hero && heroSlider && heroThumbSlider) {
   function updateAriaAttributes(activeIndex) {
     heroSlides.forEach((slide, index) => {
       const isActive = index === activeIndex;
+      const slideLink = slide.querySelector('.hero__slide-link');
 
       slide.setAttribute('aria-hidden', !isActive);
       slide.setAttribute('tabindex', isActive ? '0' : '-1');
       slide.setAttribute('aria-current', isActive ? 'true' : 'false');
 
-      if (slide.querySelector('.hero__slide-link')) {
-        slide.querySelector('.hero__slide-link').tabIndex =
-          slide.classList.contains('swiper-slide-active') ? 0 : -1;
+      if (slideLink) {
+        slideLink.tabIndex = isActive ? 0 : -1;
       }
     });
 
@@ -138,12 +138,12 @@ if (hero && heroSlider && heroThumbSlider) {
 
       thumb.setAttribute('aria-selected', isActive);
       thumb.setAttribute('aria-label', `Слайд ${index + 1}`);
-      thumb.setAttribute('role', 'tab');
-      thumb.setAttribute('tabindex', isActive ? 0 : -1);
+      thumb.setAttribute('aria-current', isActive ? 'true' : 'false');
+      thumb.setAttribute('data-index', index);
     });
   }
 
-  function setupKeyboardNavigation() {
+  (function setupHeroSliderKeyboardNav() {
     let isSliderFocused = false;
 
     heroSlides.forEach((slide) => {
@@ -174,7 +174,34 @@ if (hero && heroSlider && heroThumbSlider) {
         e.preventDefault();
       }
     });
-  }
+  })();
 
-  setupKeyboardNavigation();
+  (function setupThumbSliderKeyboardNav() {
+    let isThumbFocused = false;
+
+    thumbSlides.forEach((thumb) => {
+      thumb.addEventListener('focus', () => {
+        isThumbFocused = true;
+      });
+
+      thumb.addEventListener('blur', () => {
+        isThumbFocused = false;
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!isThumbFocused) return;
+
+      const keyHandlers = {
+        Enter: () =>
+          heroSliderSwiper.slideTo(e.target.getAttribute('data-index')),
+      };
+
+      if (keyHandlers[e.key]) {
+        keyHandlers[e.key]();
+        heroSlider.querySelector('.swiper-slide-active').focus();
+        e.preventDefault();
+      }
+    });
+  })();
 }

@@ -29,7 +29,7 @@ a {
 }
 
 .site-container {
-  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройкуpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionpositionposition
+  overflow: hidden;
 }
 
 .is-hidden {
@@ -106,6 +106,10 @@ a {
 
 * {
   &:focus-visible {
+    outline: 2px solid var(--color-primary);
+  }
+
+  &:-moz-focusring {
     outline: 2px solid var(--color-primary);
   }
 }
