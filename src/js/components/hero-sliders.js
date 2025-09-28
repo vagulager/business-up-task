@@ -132,12 +132,7 @@ if (hero && heroSlider && heroThumbSlider) {
       const isActive = index === activeIndex;
       slide.setAttribute('aria-hidden', !isActive);
       slide.setAttribute('tabindex', isActive ? '0' : '-1');
-
-      if (isActive) {
-        slide.setAttribute('aria-current', 'true');
-      } else {
-        slide.removeAttribute('aria-current');
-      }
+      slide.setAttribute('aria-current', isActive ? 'true' : 'false');
 
       if (slide.querySelector('.hero__slide-link')) {
         slide.querySelector('.hero__slide-link').tabIndex =
@@ -150,12 +145,7 @@ if (hero && heroSlider && heroThumbSlider) {
       thumb.setAttribute('aria-selected', isActive);
       thumb.setAttribute('aria-label', `Слайд ${index + 1}`);
       thumb.setAttribute('role', 'tab');
-
-      if (isActive) {
-        thumb.setAttribute('tabindex', '0');
-      } else {
-        thumb.setAttribute('tabindex', '-1');
-      }
+      thumb.setAttribute('tabindex', isActive ? 0 : -1);
     });
   }
 
@@ -167,9 +157,7 @@ if (hero && heroSlider && heroThumbSlider) {
         isSliderFocused = true;
         heroSlider.setAttribute('data-focused', 'true');
       });
-    });
 
-    heroSlides.forEach((slide) => {
       slide.addEventListener('blur', () => {
         isSliderFocused = false;
         heroSlider.removeAttribute('data-focused');
