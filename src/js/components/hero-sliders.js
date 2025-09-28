@@ -14,7 +14,7 @@ const thumbSlides = document.querySelectorAll(
 );
 
 const ENABLED = true;
-const AUTOPLAY = false;
+const AUTOPLAY = true;
 
 if (ENABLED && hero && heroSlider && heroThumbSlider) {
   const heroThumbSliderSwiper = new Swiper(heroThumbSlider, {

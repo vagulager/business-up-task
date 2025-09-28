@@ -22,6 +22,7 @@ function toggleMenu(isOpen) {
 
   header?.classList.toggle('header--open', isOpen);
   menu?.toggleAttribute('aria-hidden', !isOpen);
+  main.toggleAttribute('inert', isOpen);
 
   burgers.forEach((burger) => {
     burger?.setAttribute('data-is-active', isOpen);
