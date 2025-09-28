@@ -71,8 +71,7 @@ $browser-context: 16; // Default
 
 @mixin dark-element-gradient($value) {
   @include dark-element;
-
-  backdrop-filter: blur($value);
+  @include backdrop-blur($value);
 }
 
 @mixin line-camp($value: 1) {
@@ -109,4 +108,9 @@ $browser-context: 16; // Default
   background: var(--color-bg-primary);
   box-shadow: var(--box-shadow);
   border-radius: 16px;
+}
+
+@mixin backdrop-blur($value) {
+  backdrop-filter: blur($value);
+  clip-path: inset(0 0 0 0);
 }
