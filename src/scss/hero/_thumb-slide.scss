@@ -4,6 +4,7 @@
     @include dark-element-gradient(8px);
     @include hover;
 
+    justify-content: space-between;
     border-radius: 20px;
     padding: 3px;
     width: fit-content;
@@ -61,6 +62,10 @@
     @include line-camp(4);
   }
 
+  &-picture {
+    flex-shrink: 0;
+  }
+
   &-img {
     border-radius: 17px;
     width: 100%;
@@ -75,6 +80,10 @@
       max-width: 124px;
       opacity: 1;
       transition: max-width .5s, opacity .15s .1s;
+    }
+
+    .swiper-slide-initial & {
+      min-width: 124px;
     }
   }
 }

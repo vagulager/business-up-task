@@ -13,9 +13,10 @@ const thumbSlides = document.querySelectorAll(
   '.hero__thumb-slider .swiper-slide'
 );
 
-const AUTOPLAY = true;
+const ENABLED = true;
+const AUTOPLAY = false;
 
-if (hero && heroSlider && heroThumbSlider) {
+if (ENABLED && hero && heroSlider && heroThumbSlider) {
   const heroThumbSliderSwiper = new Swiper(heroThumbSlider, {
     slidesPerView: 'auto',
     watchSlidesProgress: true,
@@ -54,6 +55,12 @@ if (hero && heroSlider && heroThumbSlider) {
         heroThumbSlider.setAttribute('data-autoplay', AUTOPLAY);
         changeHeroBackground(this.activeIndex);
         updateAriaAttributes(this.activeIndex);
+
+        setTimeout(() => {
+          heroThumbSlider
+            .querySelector('.swiper-slide-initial')
+            .classList.remove('swiper-slide-initial');
+        }, 500);
       },
       slideChangeTransitionStart: function () {
         thumbSlides.forEach((item) => {
