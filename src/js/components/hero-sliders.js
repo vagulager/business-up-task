@@ -55,9 +55,7 @@ if (hero && heroSlider && heroThumbSlider) {
         changeHeroBackground(this.activeIndex);
         updateAriaAttributes(this.activeIndex);
       },
-      beforeSlideChangeStart: function () {
-        hero.setAttribute('data-transition', true);
-
+      slideChangeTransitionStart: function () {
         thumbSlides.forEach((item) => {
           item.style.setProperty('--progress-width', '0');
           item.setAttribute('data-progress', '0');
@@ -67,6 +65,7 @@ if (hero && heroSlider && heroThumbSlider) {
         changeHeroBackground(this.activeIndex);
       },
       slideChange: function () {
+        hero.setAttribute('data-transition', true);
         updateAriaAttributes(this.activeIndex);
 
         if (isMobile()) {
@@ -107,14 +106,9 @@ if (hero && heroSlider && heroThumbSlider) {
       ? activeSlide.getAttribute('data-mobile-image-jpg')
       : activeSlide.getAttribute('data-image-jpg');
 
-    if (video && heroVideo) {
-      hero.setAttribute('data-has-video', 'true');
-      if (heroVideo.getAttribute('src') !== video) {
-        heroVideo.src = video;
-      }
-    } else {
-      hero.setAttribute('data-has-video', 'false');
-      heroVideo.src = '';
+    if (heroVideo) {
+      hero.setAttribute('data-has-video', Boolean(video));
+      heroVideo.src = heroVideo.getAttribute('src') !== video ? video : '';
     }
 
     hero.style.setProperty(
@@ -122,14 +116,13 @@ if (hero && heroSlider && heroThumbSlider) {
       `image-set(url('${imageWebp}') type('image/webp'), url('${imageJpg}') type('image/jpg'))`
     );
 
-    setTimeout(() => {
-      hero.setAttribute('data-transition', 'false');
-    }, 200);
+    hero.setAttribute('data-transition', 'false');
   }
 
   function updateAriaAttributes(activeIndex) {
     heroSlides.forEach((slide, index) => {
       const isActive = index === activeIndex;
+
       slide.setAttribute('aria-hidden', !isActive);
       slide.setAttribute('tabindex', isActive ? '0' : '-1');
       slide.setAttribute('aria-current', isActive ? 'true' : 'false');
@@ -142,6 +135,7 @@ if (hero && heroSlider && heroThumbSlider) {
 
     thumbSlides.forEach((thumb, index) => {
       const isActive = index === activeIndex;
+
       thumb.setAttribute('aria-selected', isActive);
       thumb.setAttribute('aria-label', `Слайд ${index + 1}`);
       thumb.setAttribute('role', 'tab');
