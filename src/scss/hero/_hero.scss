@@ -85,7 +85,7 @@
   }
 
   &__video {
-    transition: opacity .4s;
+    transition: opacity .25s;
   }
 
   &__image {
@@ -93,7 +93,7 @@
     background-position: center;
     background-size: cover;
     opacity: 1;
-    transition: opacity .4s, background-image .4s;
+    transition: opacity .25s, background-image .25s;
   }
 
   &__fade {

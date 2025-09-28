@@ -62,30 +62,33 @@ if (ENABLED && hero && heroSlider && heroThumbSlider) {
             .classList.remove('swiper-slide-initial');
         }, 500);
       },
-      slideChangeTransitionStart: function () {
-        thumbSlides.forEach((item) => {
-          item.style.setProperty('--progress-width', '0');
-          item.setAttribute('data-progress', '0');
-        });
-      },
       slideChangeTransitionEnd: function () {
         changeHeroBackground(this.activeIndex);
       },
       slideChange: function () {
         hero.setAttribute('data-transition', true);
         updateAriaAttributes(this.activeIndex);
-
-        if (isMobile()) {
-          thumbSlides.forEach((item, index) => {
-            if (index < this.activeIndex) {
-              item.setAttribute('data-progress', '100');
-              item.style.setProperty('--progress-width', `100%`);
-            }
-          });
-        }
       },
       autoplayTimeLeft: function (swiper, _, progress) {
         const _progress = Math.floor((1 - progress) * 100);
+
+        if (isMobile()) {
+          thumbSlides.forEach((item, index) => {
+            item.setAttribute(
+              'data-progress',
+              index < this.activeIndex ? '100' : '0'
+            );
+            item.style.setProperty(
+              '--progress-width',
+              index < this.activeIndex ? '100%' : '0'
+            );
+          });
+        } else {
+          thumbSlides.forEach((item) => {
+            item.style.setProperty('--progress-width', '0');
+            item.setAttribute('data-progress', '0');
+          });
+        }
 
         thumbSlides[swiper.activeIndex].setAttribute(
           'data-progress',
