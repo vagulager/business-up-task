@@ -10,15 +10,17 @@
     @if (context.title_mobile) {<p class="hero__slide-title hero__slide-title--mobile">@title_mobile</p>}
     <p class="hero__slide-title">@title</p>
     <p class="hero__slide-subtitle">@subtitle</p>
-    @include("../components/button.html", {
-      "is_linkg": true,
-      "type": "button",
-      "href": "@href",
-      "target": "_blank",
-      "text": "@button_text",
-      "variant": "primary",
-      "arrow": true,
-      "class": "btn--default hero__slide-link"
-    })
+    <div class="hero__slide-btn">
+      @include("../components/button.html", {
+        "is_link": true,
+        "type": "button",
+        "href": "@href",
+        "target": "_blank",
+        "text": "@button_text",
+        "variant": "primary",
+        "arrow": true,
+        "class": "btn--default"
+      })
+    </div>
   </div>
 </div>

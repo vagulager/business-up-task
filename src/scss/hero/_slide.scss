@@ -92,18 +92,16 @@
       }
     }
 
-    &-link {
-      @include inline-flex;
-
+    &-btn {
       margin-top: 32px;
       opacity: 0;
 
-      .swiper-slide-active & {
-        animation: fade-up .4s .3s forwards;
-      }
-
       @include tablet {
         margin-top: 24px;
+      }
+
+      .swiper-slide-active & {
+        animation: fade-up .4s .3s forwards;
       }
     }
   }
