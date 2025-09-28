@@ -85,7 +85,11 @@
   }
 
   &__video {
-    transition: opacity .25s;
+    transition: opacity .3s;
+
+    @include for-desktop {
+      transition: opacity .25s;
+    }
   }
 
   &__image {
@@ -93,7 +97,11 @@
     background-position: center;
     background-size: cover;
     opacity: 1;
-    transition: opacity .25s, background-image .25s;
+    transition: opacity .4s, background-image .4s;
+
+    @include for-desktop {
+      transition: opacity .3s, background-image .3s;
+    }
   }
 
   &__fade {

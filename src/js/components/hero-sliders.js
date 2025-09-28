@@ -68,9 +68,6 @@ if (ENABLED && hero && heroSlider && heroThumbSlider) {
       slideChange: function () {
         hero.setAttribute('data-transition', true);
         updateAriaAttributes(this.activeIndex);
-      },
-      autoplayTimeLeft: function (swiper, _, progress) {
-        const _progress = Math.floor((1 - progress) * 100);
 
         if (isMobile()) {
           thumbSlides.forEach((item, index) => {
@@ -89,6 +86,9 @@ if (ENABLED && hero && heroSlider && heroThumbSlider) {
             item.setAttribute('data-progress', '0');
           });
         }
+      },
+      autoplayTimeLeft: function (swiper, _, progress) {
+        const _progress = Math.floor((1 - progress) * 100);
 
         thumbSlides[swiper.activeIndex].setAttribute(
           'data-progress',
@@ -126,7 +126,9 @@ if (ENABLED && hero && heroSlider && heroThumbSlider) {
       `image-set(url('${imageWebp}') type('image/webp'), url('${imageJpg}') type('image/jpg'))`
     );
 
-    hero.setAttribute('data-transition', 'false');
+    isMobile()
+      ? setTimeout(() => hero.setAttribute('data-transition', 'false'), 150)
+      : hero.setAttribute('data-transition', 'false');
   }
 
   function updateAriaAttributes(activeIndex) {
