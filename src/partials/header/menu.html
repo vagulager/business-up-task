@@ -1,11 +1,8 @@
-<div class="header__menu" aria-hidden="true" role="menu">
+<div class="header__menu" data-menu aria-hidden="true" role="menu">
   <div class="header__menu-col header__menu-col--menu">
-    <div class="tabs" data-tabs="header-tabs">
+    <div class="tabs" data-tabs="header-tabs" data-tabs-init-active="false">
       <ul class="list-reset tabs__nav">
         @loop("./menu-item.html", [
-          {
-            "hidden": true
-          },
           {
             "text": "SPA & Релакс",
           },
@@ -33,7 +30,6 @@
         ])
       </ul>
       <div class="tabs__content">
-        <div class="tabs__panel"></div>
         <div class="tabs__panel">
           <ul class="header__menu-links">
             <li class="header__menu-item"><a href="#" class="header__menu-link">Европейские массажи</a></li>

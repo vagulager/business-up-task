@@ -60,21 +60,11 @@
       width: 100%;
       max-width: 292px;
 
-      &-item {
-        &:has(.tabs__nav-btn--hidden) {
-          display: none;
-        }
-      }
-
       &-btn {
         justify-content: space-between;
         padding: 11px 0;
         width: 100%;
         text-transform: uppercase;
-
-        &--hidden {
-          display: none;
-        }
 
         &--active {
           color: var(--color-primary);

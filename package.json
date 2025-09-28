@@ -12,7 +12,8 @@
     "build": "npm run stylelint && npm run code && gulp build --build",
     "cache": "gulp cache",
     "backend": "gulp backend",
-    "zip": "gulp zip --build"
+    "zip": "gulp zip --build",
+    "postinstall": "patch-package"
   },
   "author": "MaxGraph",
   "license": "ISC",
@@ -45,6 +46,7 @@
     "gulp-typograf": "^4.1.0",
     "gulp-webp": "^5.0.0",
     "gulp-zip": "^6.0.0",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.38",
     "postcss-scss": "^4.0.9",
     "sass": "^1.75.0",
