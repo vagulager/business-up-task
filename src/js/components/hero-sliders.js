@@ -5,12 +5,12 @@ import { isMobile } from '../functions/check-viewport.js';
 Swiper.use([Keyboard, EffectFade, Autoplay, Thumbs, A11y]);
 
 const hero = document.querySelector('.hero');
-const heroSlider = document.querySelector('#hero-slider');
-const heroThumbSlider = document.querySelector('#hero-thumb-slider');
-const heroVideo = document.querySelector('#hero-video');
-const heroSlides = document.querySelectorAll('#hero-slider .swiper-slide');
+const heroSlider = document.querySelector('.hero__slider');
+const heroThumbSlider = document.querySelector('.hero__thumb-slider');
+const heroVideo = document.querySelector('.hero__video');
+const heroSlides = document.querySelectorAll('.hero__slider .swiper-slide');
 const thumbSlides = document.querySelectorAll(
-  '#hero-thumb-slider .swiper-slide'
+  '.hero__thumb-slider .swiper-slide'
 );
 
 const AUTOPLAY = true;
