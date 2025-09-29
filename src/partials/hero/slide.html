@@ -8,7 +8,8 @@
 >
   <div class="hero__slide">
     @if (context.title_mobile) {<p class="hero__slide-title hero__slide-title--mobile">@title_mobile</p>}
-    <p class="hero__slide-title">@title</p>
+    @if (context.h1) {<h1 class="hero__slide-title">@title</h1>}
+    @if (!context.h1) {<p class="hero__slide-title">@title</p>}
     <p class="hero__slide-subtitle">@subtitle</p>
     <div class="hero__slide-btn">
       @include("../components/button.html", {
